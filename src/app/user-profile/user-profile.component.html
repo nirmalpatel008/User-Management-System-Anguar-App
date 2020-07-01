@@ -1,0 +1,64 @@
+<app-toolbar></app-toolbar>
+
+<div
+  class="row"
+  style="padding-left: 15px; padding-right: 15px; padding-top: 15px;"
+>
+  <div class="col s12">
+    <!-- <div class="card"> -->
+    <div class="card-content white-text">
+      <div class="row">
+        <!-- <div class="col s5">
+            <div class="row"></div>
+          </div> -->
+
+        <table class="responsive-table highlight">
+          <thead>
+            <tr>
+              <th>Email</th>
+              <th>User Name</th>
+              <th>Created On</th>
+              <th>Updated On</th>
+
+              <th></th>
+            </tr>
+          </thead>
+          <div class="center">
+            <mat-spinner
+              mode="indeterminate"
+              *ngIf="Status"
+              style="margin: 0 auto;"
+            ></mat-spinner>
+          </div>
+          <tr
+            *ngFor="let user of userService.users | slice: lowValue:highValue"
+          >
+            <td>{{ user.email }}</td>
+            <td>{{ user.username }}</td>
+            <td>{{ user.createdOn | date: "medium" }}</td>
+            <td>{{ user.updatedOn | date: "medium" }}</td>
+
+            <td>
+              <a class="action-btn">
+                <i class="material-icons" (click)="onEdit(user)">edit</i>
+              </a>
+              <a class="action-btn">
+                <i class="material-icons" (click)="onDelete(user._id)"
+                  >delete</i
+                >
+              </a>
+            </td>
+          </tr>
+        </table>
+        <mat-paginator
+          [length]="userService.users.length"
+          [pageSize]="pageSize"
+          [pageSizeOptions]="[5, 10, 20, 30]"
+          (page)="pageEvent = getPaginatorData($event)"
+          showFirstLastButtons="false"
+        ></mat-paginator>
+      </div>
+    </div>
+    <!-- </div> -->
+  </div>
+</div>

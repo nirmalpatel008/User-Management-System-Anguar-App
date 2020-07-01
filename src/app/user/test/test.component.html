@@ -1,0 +1,45 @@
+<!-- <h5 style="text-align: left;">
+  {{ data ? "Modify User" : "New User" }}
+</h5> -->
+<mat-toolbar>{{ data ? "Modify User" : "New User" }} </mat-toolbar>
+<form #userForm="ngForm" (ngSubmit)="onSubmit(userForm)">
+  <input
+    type="hidden"
+    name="_id"
+    #_id="ngModel"
+    [(ngModel)]="userService.selectedUser._id"
+  />
+  <div class="input-field col s6">
+    <input
+      type="text"
+      name="email"
+      #name="ngModel"
+      [(ngModel)]="userService.selectedUser.email"
+      placeholder="Enter email id here"
+      required
+    />
+  </div>
+  <div class="input-field col s12">
+    <input
+      type="text"
+      name="username"
+      #name="ngModel"
+      [(ngModel)]="userService.selectedUser.username"
+      placeholder="Enter User Name here"
+    />
+  </div>
+  <div class="input-field col s12">
+    <input
+      type="password"
+      name="password"
+      #name="ngModel"
+      [(ngModel)]="userService.selectedUser.password"
+      placeholder="Enter password here"
+    />
+  </div>
+  <div>
+    <button type="submit" class="btn btn-lg btn-block btn-info">
+      SUBMIT
+    </button>
+  </div>
+</form>

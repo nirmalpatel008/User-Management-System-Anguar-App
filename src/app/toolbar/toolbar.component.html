@@ -1,0 +1,17 @@
+<!-- <div class="container"> -->
+<mat-toolbar color="primary">
+  <!-- <span class="fill-remaining-space"></span> -->
+  <span style="padding-right: 100px;">Admin Panel</span>
+  <button mat-mini-fab color="primary">
+    <span class="material-icons" (click)="createUser()"> add </span>
+  </button>
+  <span style="margin-left: 20px;"></span>
+  <button mat-mini-fab color="primary">
+    <span class="material-icons" (click)="refreshList()"> refresh </span>
+  </button>
+  <div class="spacer"></div>
+
+  <button mat-raised-button color="raw" (click)="logoutUser()">
+    Logout
+  </button>
+</mat-toolbar>
