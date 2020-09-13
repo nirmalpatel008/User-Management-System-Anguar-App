@@ -203,7 +203,6 @@ export class UserProfileComponent implements OnInit {
     test = JSON.parse(test);
     dialogConfig.data = test;
     dialogConfig.panelClass = "my-class";
-
     const dialogRef = this.dialog.open(TestComponent, dialogConfig);
     dialogRef.afterClosed().subscribe((data) => {
       console.log("Dialog output:", data);
